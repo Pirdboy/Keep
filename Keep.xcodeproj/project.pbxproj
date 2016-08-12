@@ -13,6 +13,9 @@
 		87976F601D5C9E72001C4343 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87976F5E1D5C9E72001C4343 /* Main.storyboard */; };
 		87976F621D5C9E72001C4343 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87976F611D5C9E72001C4343 /* Assets.xcassets */; };
 		87976F651D5C9E72001C4343 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87976F631D5C9E72001C4343 /* LaunchScreen.storyboard */; };
+		87976F701D5CA0A7001C4343 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87976F6E1D5CA0A7001C4343 /* AVFoundation.framework */; };
+		87976F711D5CA0A7001C4343 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87976F6F1D5CA0A7001C4343 /* AVKit.framework */; };
+		87976F731D5CA11C001C4343 /* videos in Resources */ = {isa = PBXBuildFile; fileRef = 87976F721D5CA11C001C4343 /* videos */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		87976F611D5C9E72001C4343 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		87976F641D5C9E72001C4343 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		87976F661D5C9E72001C4343 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		87976F6E1D5CA0A7001C4343 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		87976F6F1D5CA0A7001C4343 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		87976F721D5CA11C001C4343 /* videos */ = {isa = PBXFileReference; lastKnownFileType = folder; path = videos; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +39,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87976F701D5CA0A7001C4343 /* AVFoundation.framework in Frameworks */,
+				87976F711D5CA0A7001C4343 /* AVKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +50,8 @@
 		87976F491D5C9E72001C4343 = {
 			isa = PBXGroup;
 			children = (
+				87976F6E1D5CA0A7001C4343 /* AVFoundation.framework */,
+				87976F6F1D5CA0A7001C4343 /* AVKit.framework */,
 				87976F541D5C9E72001C4343 /* Keep */,
 				87976F531D5C9E72001C4343 /* Products */,
 			);
@@ -58,6 +68,7 @@
 		87976F541D5C9E72001C4343 /* Keep */ = {
 			isa = PBXGroup;
 			children = (
+				87976F721D5CA11C001C4343 /* videos */,
 				87976F581D5C9E72001C4343 /* AppDelegate.h */,
 				87976F591D5C9E72001C4343 /* AppDelegate.m */,
 				87976F5B1D5C9E72001C4343 /* ViewController.h */,
@@ -110,6 +121,7 @@
 				TargetAttributes = {
 					87976F511D5C9E72001C4343 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 6HQNPNL2GN;
 					};
 				};
 			};
@@ -136,6 +148,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87976F731D5CA11C001C4343 /* videos in Resources */,
 				87976F651D5C9E72001C4343 /* LaunchScreen.storyboard in Resources */,
 				87976F621D5C9E72001C4343 /* Assets.xcassets in Resources */,
 				87976F601D5C9E72001C4343 /* Main.storyboard in Resources */,
@@ -263,10 +276,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Keep/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cmbchina.Keep;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -274,10 +292,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Keep/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cmbchina.Keep;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

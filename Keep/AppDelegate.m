@@ -1,9 +1,9 @@
 //
 //  AppDelegate.m
-//  Keep
+//  Welcome2
 //
-//  Created by CMB on 16/8/11.
-//  Copyright © 2016年 CMB. All rights reserved.
+//  Created by CMB on 16/8/10.
+//  Copyright © 2016年 cmbchina. All rights reserved.
 //
 
 #import "AppDelegate.h"
@@ -17,6 +17,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [NSThread sleepForTimeInterval:1.0];
+
     return YES;
 }
 
