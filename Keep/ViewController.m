@@ -24,8 +24,6 @@
 @property (weak, nonatomic) AVPlayer *player;
 @property (strong,nonatomic) NSTimer *timer;
 
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *viewHeightConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *viewWidthConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *buttonHeightConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *buttonToBottomConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *labelWidthConstraint;
@@ -76,8 +74,6 @@
 - (void)updateViewConstraints {
     [super updateViewConstraints];
     CGRect windowFrame = [[[UIApplication sharedApplication] keyWindow] frame];
-    _viewWidthConstraint.constant = windowFrame.size.width*4;
-    _viewHeightConstraint.constant = windowFrame.size.height-_buttonHeightConstraint.constant-_buttonToBottomConstraint.constant;
     _labelWidthConstraint.constant = windowFrame.size.width;
     
     _label1LeadingConstraint.constant = 0;
@@ -85,8 +81,12 @@
     _label3LeadingConstraint.constant = windowFrame.size.width*2;
     _label4LeadingConstraint.constant = windowFrame.size.width*3;
 }
-
-
+- (void)viewWillAppear:(BOOL)animated {
+    
+}
+- (void)viewWillDisappear:(BOOL)animated {
+    
+}
 // 按钮事件
 - (void)registerClick:(UIButton *)sender {
     NSLog(@"注册");
@@ -97,6 +97,7 @@
 // scrollView委托方法,设置pageControl的当前页数
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGRect windowFrame = [[[UIApplication sharedApplication] keyWindow] frame];
+    NSLog(@"%f", scrollView.contentOffset.x);
     _pageControl.currentPage = scrollView.contentOffset.x / windowFrame.size.width;
 }
 // pageControl事件
@@ -151,7 +152,7 @@
     [_player play];
 }
 
-
+# pragma mark - Timer
 // 设置定时器
 - (void)setupTimer {
     _timer = [NSTimer scheduledTimerWithTimeInterval:2.5f target:self selector:@selector(timerFireMethod) userInfo:nil repeats:YES];
@@ -167,7 +168,13 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+# pragma mark - dealloc
+- (void)dealloc {
     [_timer invalidate];
     [self removeObserverFromPlayerItem:_player.currentItem];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                 name:AVPlayerItemDidPlayToEndTimeNotification
+                                               object:_player.currentItem];
 }
 @end
